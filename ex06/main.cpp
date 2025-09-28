@@ -3,15 +3,11 @@
 int main(int ac, char **av)
 {
 	Harl harl;
-	if (ac == 2)
+	if (ac != 2)
 	{
-		harl.complain(av[1]);
-		return 0;
+		std::cout << "Usage: ./harlFilter <LEVEL>\n";
+		return 1;
 	}
-	std::string tests[] = {"DEBUG", "INFO", "WARNING", "ERROR", "UNKNOWN"};
-	for (const auto& t : tests) {
-		std::cout << "== " << t << " ==\n";
-		harl.complain(t);
-	}
+	harl.complain(av[1]);
 	return 0;
 }

@@ -37,11 +37,21 @@ void Harl::complain(std::string level) {
 			break ;
 		}
 	}
-	if (index == -1)
+	switch (index)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]\n";
-		return ;
+		case 0:
+			(this->*_actions[0])();
+			/* fall through */
+		case 1:
+			(this->*_actions[1])();
+			/* fall through */
+		case 2:
+			(this->*_actions[2])();
+			/* fall through */
+		case 3:
+			(this->*_actions[3])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]\n";
 	}
-	for (int i = index; i < 4; i++)
-		(this->*_actions[i])();
 }
