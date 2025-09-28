@@ -42,6 +42,5 @@ void Harl::complain(std::string level) {
 		std::cout << "[ Probably complaining about insignificant problems ]\n";
 		return ;
 	}
-	for (int i = index; i < 4; i++)
-		(this->*_actions[i])();
+	(this->*_actions[index])();
 }
